@@ -1,0 +1,54 @@
+$hands-color: #fff;
+$clock-radius: 300px;
+
+$hour-hand-width: 12px;
+$minute-hand-width: 8px;
+$second-hand-width: 2px;
+
+$hour-hand-length: 150px;
+$minute-hand-length: 240px;
+$second-hand-length: 300px;
+
+#clock {
+    border-radius: 50%;
+    overflow: none;
+    position: relative;
+    height: 2 * $clock-radius;
+    width: 2 * $clock-radius;
+
+    img {
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+}
+
+#hour, #minute, #second {
+    background-color: $hands-color;
+    
+    transform-origin: bottom;
+    -webkit-transform-origin: bottom;
+
+    position: absolute;
+    top: $clock-radius;
+    z-index: 3;
+}
+
+#hour {
+    left: $clock-radius - $hour-hand-width;
+    height: $hour-hand-length;
+    width: $hour-hand-width;
+}
+
+#minute {
+    left: $clock-radius - $minute-hand-width;
+    height: $minute-hand-length;
+    width: $minute-hand-width;
+}
+
+#second {
+    left: $clock-radius - $second-hand-width;
+    height: $second-hand-length;
+    width: $second-hand-width;
+}
+
