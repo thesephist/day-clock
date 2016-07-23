@@ -29,6 +29,8 @@ $second-hand-length: 300px;
     transform-origin: bottom;
     -webkit-transform-origin: bottom;
 
+    will-change: transform;
+
     position: absolute;
     top: $clock-radius;
     z-index: 3;
