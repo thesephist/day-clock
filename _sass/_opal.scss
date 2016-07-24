@@ -1,20 +1,33 @@
-$hands-color: #fff;
-$clock-radius: 300px;
+$bg-color: #000;
+$hands-color: linear-gradient(transparent, transparent 5%, rgba(255, 255, 255, 0.2) 50%, white);
+$clock-radius: 50vh;
 
 $hour-hand-width: 12px;
 $minute-hand-width: 8px;
 $second-hand-width: 2px;
 
-$hour-hand-length: 150px;
-$minute-hand-length: 240px;
-$second-hand-length: 300px;
+$hour-hand-length: 25%;
+$minute-hand-length: 38%;
+$second-hand-length: 45%;
+
+body, html, iframe, div {
+    margin: 0;
+    outline: none;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: $bg-color;
+}
 
 #clock {
     border-radius: 50%;
-    overflow: none;
+    overflow: hidden;;
     position: relative;
     height: 2 * $clock-radius;
     width: 2 * $clock-radius;
+    margin:0 auto;
 
     img {
         min-height: 100%;
@@ -24,11 +37,10 @@ $second-hand-length: 300px;
 }
 
 #hour, #minute, #second {
-    background-color: $hands-color;
+    background: $hands-color;
     
-    transform-origin: bottom;
-    -webkit-transform-origin: bottom;
-
+    transform-origin: top;
+    -webkit-transform-origin: top;
     will-change: transform;
 
     position: absolute;
@@ -37,19 +49,19 @@ $second-hand-length: 300px;
 }
 
 #hour {
-    left: $clock-radius - $hour-hand-width;
+    left: calc(#{$clock-radius} - #{$hour-hand-width / 2});
     height: $hour-hand-length;
     width: $hour-hand-width;
 }
 
 #minute {
-    left: $clock-radius - $minute-hand-width;
+    left: calc(#{$clock-radius} - #{$minute-hand-width / 2});
     height: $minute-hand-length;
     width: $minute-hand-width;
 }
 
 #second {
-    left: $clock-radius - $second-hand-width;
+    left: calc(#{$clock-radius} - #{$second-hand-width / 2});
     height: $second-hand-length;
     width: $second-hand-width;
 }
