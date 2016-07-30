@@ -35,7 +35,7 @@ function updateClock() {
     // TODO
 
     // rAF is bae
-    clockAnimatio = requestAnimationFrame(updateClock);
+    clockAnimation = requestAnimationFrame(updateClock);
 
     // for debugging
     if (cancelAnimation) {
