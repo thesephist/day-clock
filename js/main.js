@@ -9,6 +9,17 @@ var hourHand = document.getElementById("hour"),
 var clockAnimation,
     cancelAnimation;
 
+var timeToColor = {
+    "H0": "#ffffff",
+    "H3": "#ffffff",
+    "H6": "#ffffff",
+    "H9": "#ffffff",
+    "H12": "#ffffff",
+    "H15": "#ffffff",
+    "H18": "#ffffff",
+    "H21": "#ffffff"
+};
+
 // update function
 function updateClock() {
     var time = new Date();
@@ -31,8 +42,8 @@ function updateClock() {
     applyAngle(secondHand, getAngle(second, 60));
     dateBox.innerText = moment(time).format("MMM DD[,] YYYY");
 
-    // draw gradient map occasionally; maybe like every minute
-    // TODO
+    // draw gradient map
+    bg.style.background = gradientMap(hour);
 
     // rAF is bae
     clockAnimation = requestAnimationFrame(updateClock);
@@ -58,8 +69,13 @@ function getAngle(time, whole) {
     return (360 * time / whole + 180).toString() + "deg";
 }
 
-function gradientMap(percent) {
-    return "linear-gradient"; // some CSS thing
+function gradientMap(hour) {
+    var truncHour = hour - hour % 3;
+    var colors = [hour - 3, hour, hour + 3].map(function(h) {
+        return timeToColor["H" + h.toString()];
+    });
+
+    return "linear-gradient(to top, ${colors[0]}, 50% ${colors[1]}, ${colors[2]})"; // some CSS thing
 }
 
 // we're using requestAnimationFrame because 60fps is sexy af
