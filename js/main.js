@@ -25,10 +25,10 @@ function updateClock() {
     var time = new Date();
 
     // get times
-    var hour = time.getHours() + time.getMinutes() / 60;
-    var minute = time.getMinutes() + time.getSeconds() / 60;
     var second = time.getSeconds() + time.getMilliseconds() / 1000;
-
+    var minute = time.getMinutes() + second / 60;
+    var hour = time.getHours() + minute / 60;
+ 
     // get date
     var date = time.getDate();
     var month = time.getMonth();
@@ -45,13 +45,13 @@ function updateClock() {
     // draw gradient map
     bg.style.background = gradientMap(hour);
 
-    // rAF is bae
-    clockAnimation = requestAnimationFrame(updateClock);
-
     // for debugging
     if (cancelAnimation) {
         cancelAnimationFrame(clockAnimation);
         clockAnimation = undefined;
+    } else {
+        // rAF is bae
+        clockAnimation = requestAnimationFrame(updateClock);
     }
 }
 
