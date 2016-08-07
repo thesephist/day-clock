@@ -8,6 +8,10 @@ body, html, iframe, div {
 body {
   background: #000; }
 
+#backdrop {
+  height: 100vh;
+  width: 100vw; }
+
 #clock {
   border: 12px solid #000;
   box-sizing: border-box;

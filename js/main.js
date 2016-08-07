@@ -10,14 +10,14 @@ var clockAnimation,
     cancelAnimation;
 
 var timeToColor = {
-    "H0": "#ffffff",
-    "H3": "#ffffff",
-    "H6": "#ffffff",
-    "H9": "#ffffff",
-    "H12": "#ffffff",
-    "H15": "#ffffff",
-    "H18": "#ffffff",
-    "H21": "#ffffff"
+    "H0": "#2b16a0",
+    "H3": "#221761",
+    "H6": "#691d90",
+    "H9": "#bb1258",
+    "H12": "#f3da2d",
+    "H15": "#21bd8b",
+    "H18": "#2143bd",
+    "H21": "#cc1a1a"
 };
 
 // update function
@@ -71,11 +71,11 @@ function getAngle(time, whole) {
 
 function gradientMap(hour) {
     var truncHour = hour - hour % 3;
-    var colors = [hour - 3, hour, hour + 3].map(function(h) {
+    var colors = [truncHour - 3, truncHour, truncHour + 3].map(function(h) {
         return timeToColor["H" + h.toString()];
     });
 
-    return "linear-gradient(to top, ${colors[0]}, 50% ${colors[1]}, ${colors[2]})"; // some CSS thing
+    return `linear-gradient(to top, ${colors[0]}, ${colors[1]}, ${colors[2]})`; // some CSS thing
 }
 
 // we're using requestAnimationFrame because 60fps is sexy af

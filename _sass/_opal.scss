@@ -23,6 +23,11 @@ body {
     background: $bg-color;
 }
 
+#backdrop {
+    height: 100vh;
+    width: 100vw;
+}
+
 #clock {
     border: 12px solid #{$bg-color};
     box-sizing: border-box;
