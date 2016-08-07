@@ -75,7 +75,7 @@ function gradientMap(hour) {
         return timeToColor["H" + h.toString()];
     });
 
-    return `linear-gradient(to top, ${colors[0]}, ${colors[1]}, ${colors[2]})`; // some CSS thing
+    return `linear-gradient(to bottom, ${colors[0]}, ${colors[1]}, ${colors[2]})`; // some CSS thing
 }
 
 // we're using requestAnimationFrame because 60fps is sexy af
